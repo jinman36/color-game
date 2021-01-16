@@ -56,13 +56,13 @@ for (var i = 0; i < square.length; i++) {
   square[i].addEventListener("click", function() {
     var clickedColor = this.style.background;
     if (clickedColor === pickedColor) {
-      messageDisplay.textContent = "Good Job!";
-      resetButton.textContent = "Play Agaiin?";
+      alert("Good Job!");
+      resetButton.textContent = "Play Again?";
       changeColors(clickedColor);
       h1.style.background = clickedColor;
     } else {
       this.style.background = "#232323";
-      messageDisplay.textContent = "Try Again";
+      alert("Try Again");
     }
   })
 }
@@ -91,5 +91,5 @@ function randomColor() {
   var g = Math.floor(Math.random() * 256);
   var b = Math.floor(Math.random() * 256);
 
-  return "rgb(" + r+ ", " + g + ", " + b + ")";
+  return "rgb(" + r + ", " + g + ", " + b + ")";
   }
