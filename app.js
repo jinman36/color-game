@@ -57,7 +57,7 @@ for (var i = 0; i < square.length; i++) {
     var clickedColor = this.style.background;
     if (clickedColor === pickedColor) {
       alert("Good Job!");
-      resetButton.textContent = "Play Again?";
+      resetButton.textContent = "Play again?";
       changeColors(clickedColor);
       h1.style.background = clickedColor;
     } else {
