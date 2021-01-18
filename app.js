@@ -1,3 +1,5 @@
+'use strict'
+
 var numSquares = 6;
 var colors = generateRandomColors(numSquares);
 var square = document.querySelectorAll(".square");
@@ -18,9 +20,9 @@ easyButton.addEventListener("click", function() {
   rgbCode.textContent = pickedColor;
   for (var i = 0; i < square.length; i++) {
     if (colors[i]) {
-      square[i].getElementsByClassName.background = colors[i];
+      square[i].style.background = colors[i];
     } else {
-      square[i].getElementsByClassName.display = "none";
+      square[i].style.display = "none";
     }
   }
 });
@@ -33,8 +35,8 @@ hardButton.addEventListener("click", function() {
   pickedColor = pickColor();
   rgbCode.textContent = pickedColor;
   for (var i = 0; i < square.length; i++) {
-    square[i].getElementsByClassName.background = colors[i];
-    square[i].getElementsByClassName.display = "block";
+    square[i].style.background = colors[i];
+    square[i].style.display = "block";
   }
 });
 
@@ -44,7 +46,7 @@ resetButton.addEventListener("click", function() {
   rgbCode.textContent = pickedColor;
   this.textContent = "New Color";
   for (var i = 0; i < square.length; i++) {
-    square[i].getElementsByClassName.background = colors[i];
+    square[i].style.background = colors[i];
   }
   h1.style.background = "steelblue";
 })
@@ -62,7 +64,7 @@ for (var i = 0; i < square.length; i++) {
       h1.style.background = clickedColor;
     } else {
       this.style.background = "#232323";
-      alert("Try Again");
+      // alert("Try Again");
     }
   })
 }
