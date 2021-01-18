@@ -1,17 +1,22 @@
 "use strict"
-
+// total squares possible
 var numSquares = 12;
+// generate random colors
 var colors = generateRandomColors(numSquares);
 var square = document.querySelectorAll(".square");
 var pickedColor = pickColor();
+// generate color code for choosing
 var rgbCode = document.getElementById("rgbCode");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
+// button variables
 var resetButton = document.querySelector("#reset");
 var easyButton = document.querySelector("#easyButton");
 var hardButton = document.querySelector("#hardButton");
 var extraHardButton = document.querySelector("#extraHardButton");
 
+
+// Easy Button
 easyButton.addEventListener("click", function() {
   hardButton.classList.remove("selected");
   extraHardButton.classList.remove("selected");
@@ -29,6 +34,7 @@ easyButton.addEventListener("click", function() {
   }
 });
 
+// hard Button
 hardButton.addEventListener("click", function() {
   easyButton.classList.remove("selected");
   extraHardButton.classList.remove("selected");
@@ -46,6 +52,7 @@ hardButton.addEventListener("click", function() {
   }
 });
 
+// Harder Button
 extraHardButton.addEventListener("click", function() {
   easyButton.classList.remove("selected");
   hardButton.classList.remove("selected");
@@ -60,6 +67,7 @@ extraHardButton.addEventListener("click", function() {
   }
 });
 
+// Reset button
 resetButton.addEventListener("click", function() {
   colors = generateRandomColors(numSquares);
   pickedColor = pickColor();
@@ -71,14 +79,17 @@ resetButton.addEventListener("click", function() {
   h1.style.background = "steelblue";
 })
 
+// color chooser
 rgbCode.textContent = pickedColor;
 
+// determining correct answer by click
 for (var i = 0; i < square.length; i++) {
   square[i].style.background = colors[i];
   square[i].addEventListener("click", function() {
     var clickedColor = this.style.background;
     if (clickedColor === pickedColor) {
       alert("Good Job!");
+      clearTimeout(myVar)
       resetButton.textContent = "Play again?";
       changeColors(clickedColor);
       h1.style.background = clickedColor;
@@ -116,31 +127,8 @@ function randomColor() {
   return "rgb(" + r + ", " + g + ", " + b + ")";
   }
 
-  // startGameButton.addEventListener ("click", () => {
-
-  // }
-
-  // Game timer
-  var minutesLabel = document.getElementById("minutes");
-  var secondsLabel = document.getElementById("seconds");
-  var totalSeconds = 0;
-  setInterval(setTime, 1000);
-  
-  
-//  function startTimer() { 
-  function setTime() {
-    ++totalSeconds;
-    secondsLabel.innerHTML = pad(totalSeconds % 60);
-    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+  function myFunction() {
+    alert('Try again');
   }
-  
-  function pad(val) {
-    var valString = val + "";
-    if (valString.length < 2) {
-      return "0" + valString;
-    } else {
-      return valString;
-    };
-  };
-
-// };
+  // myFunction();
+console.log(easyButton);
