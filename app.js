@@ -1,6 +1,6 @@
-'use strict'
+"use strict"
 
-var numSquares = 6;
+var numSquares = 12;
 var colors = generateRandomColors(numSquares);
 var square = document.querySelectorAll(".square");
 var pickedColor = pickColor();
@@ -41,7 +41,7 @@ hardButton.addEventListener("click", function() {
     if (colors[i]) {
       square[i].style.background = colors[i];
     } else {
-      square[i].style.display = "none";
+      square[i].style.display = "block";
     }
   }
 });
@@ -55,11 +55,8 @@ extraHardButton.addEventListener("click", function() {
   pickedColor = pickColor();
   rgbCode.textContent = pickedColor;
   for (var i = 0; i < square.length; i++) {
-     if (colors[i]) {
-      square[i].style.background = colors[i];
-    } else {
-      square[i].style.display = "none";
-    }
+    square[i].style.background = colors[i];
+    square[i].style.display = "block";
   }
 });
 
@@ -86,7 +83,7 @@ for (var i = 0; i < square.length; i++) {
       changeColors(clickedColor);
       h1.style.background = clickedColor;
     } else {
-      this.style.background = "#232323";
+      this.style.background = "#000000";
       // alert("Try Again");
     }
   })
@@ -118,3 +115,32 @@ function randomColor() {
 
   return "rgb(" + r + ", " + g + ", " + b + ")";
   }
+
+  // startGameButton.addEventListener ("click", () => {
+
+  // }
+
+  // Game timer
+  var minutesLabel = document.getElementById("minutes");
+  var secondsLabel = document.getElementById("seconds");
+  var totalSeconds = 0;
+  setInterval(setTime, 1000);
+  
+  
+//  function startTimer() { 
+  function setTime() {
+    ++totalSeconds;
+    secondsLabel.innerHTML = pad(totalSeconds % 60);
+    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+  }
+  
+  function pad(val) {
+    var valString = val + "";
+    if (valString.length < 2) {
+      return "0" + valString;
+    } else {
+      return valString;
+    };
+  };
+
+// };
